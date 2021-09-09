@@ -111,6 +111,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Opens Firefox
+bindsym $mod+Shift+f exec firefox
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh --hack
