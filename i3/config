@@ -42,8 +42,8 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # brillo
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -204,16 +204,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #bar {
-#	font pango:Inconsolata 8
-#	position top
-#	tray_output none
-#	status_command bumblebee-status -m nic cpu \
-#		memory battery bluetooth date time pasink pasource \
-#		-p time.format="%H:%M" date.format="%a, %b %d %Y" bluetooth.right_click_popup=false \
-#		-t solarized-powerline
-#}
-#
-
+		-p nic.exclude="lo,virbr,docker,vboxnet,veth,.*:avahi,eno1" nic.format="{state} {ssid}" time.format="%H:%M" date.format="%a, %b %d %Y" pomodoro.notify=notify-send 'Time up!' pasink.limit=100% pasource.limit=100% spotify.layout=spotify.song spotify.concise_controls=true  \
+		-t iceberg-powerline
+}
 exec_always --no-startup-id setxkbmap -layout es
 exec_always --no-startup-id feh --bg-fill "/home/dante/Pictures/Nostalgia_Images/Msft_Nostalgia_Solitaire.jpg"
 
@@ -233,4 +226,5 @@ exec --no-startup-id picom -CGb
 
 focus_follows_mouse no
 
-# HARDCODEO DEL MONITOR
+# Battery notif
+exec --no-startup-id cbatticon
