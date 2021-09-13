@@ -235,3 +235,6 @@ focus_follows_mouse no
 
 # Battery notif
 exec_always --no-startup-id cbatticon
+
+# Carpeta de Google Drive
+exec --no-startup-id google-drive-ocamlfuse -label label ~/GoogleDrive 
